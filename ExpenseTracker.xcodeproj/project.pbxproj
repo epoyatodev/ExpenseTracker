@@ -6,10 +6,6 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		CA1538532CD54728000475C8 /* ScrollViewSwipeActions in Frameworks */ = {isa = PBXBuildFile; productRef = CA1538522CD54728000475C8 /* ScrollViewSwipeActions */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXFileReference section */
 		CA97B9B22CD40822001AD28B /* ExpenseTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExpenseTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -27,7 +23,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA1538532CD54728000475C8 /* ScrollViewSwipeActions in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,7 +65,6 @@
 			);
 			name = ExpenseTracker;
 			packageProductDependencies = (
-				CA1538522CD54728000475C8 /* ScrollViewSwipeActions */,
 			);
 			productName = ExpenseTracker;
 			productReference = CA97B9B22CD40822001AD28B /* ExpenseTracker.app */;
@@ -101,7 +95,6 @@
 			mainGroup = CA97B9A92CD40822001AD28B;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				CA1538512CD54728000475C8 /* XCRemoteSwiftPackageReference "ScrollViewSwipeActions" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = CA97B9B32CD40822001AD28B /* Products */;
@@ -344,25 +337,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		CA1538512CD54728000475C8 /* XCRemoteSwiftPackageReference "ScrollViewSwipeActions" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/epoyatodev/ScrollViewSwipeActions";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		CA1538522CD54728000475C8 /* ScrollViewSwipeActions */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = CA1538512CD54728000475C8 /* XCRemoteSwiftPackageReference "ScrollViewSwipeActions" */;
-			productName = ScrollViewSwipeActions;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CA97B9AA2CD40822001AD28B /* Project object */;
 }
