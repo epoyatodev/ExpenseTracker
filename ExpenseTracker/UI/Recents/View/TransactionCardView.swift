@@ -35,10 +35,11 @@ struct TransactionCardView: View {
             
             Text(currencyString(transaction.amount))
                 .fontWeight(.semibold)
+                .foregroundStyle(.primary)
         }
         .padding(.horizontal, 15)
         .padding(.vertical, 10)
-        .background(.white)
+        .background(.principal, in: .rect(cornerRadius: 15))
     }
 }
 

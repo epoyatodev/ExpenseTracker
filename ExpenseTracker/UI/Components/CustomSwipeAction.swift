@@ -71,13 +71,14 @@ struct CustomSwipeAction<Content: View>: View {
             }
             .clipShape(.rect(cornerRadius: cornerRadius))
             .rotationEffect(.init(degrees: direction == .leading ? 180 : 0))
-            .onReceive(NotificationCenter.default.publisher(for: .init("hola"), object: nil)) { _ in
+            .onReceive(NotificationCenter.default.publisher(for: .selectedcategoryChanged, object: nil)) { _ in
                 withAnimation(.snappy){
                     reader.scrollTo(viewID, anchor: direction == .trailing ? .topLeading : .topTrailing)
                 }
             }
         }
         .allowsHitTesting(isEnabled)
+        .transition(CustomTransitiom())
     }
     
     @ViewBuilder
@@ -126,6 +127,21 @@ struct OffsetKey: PreferenceKey {
     
     static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
         value = nextValue()
+    }
+}
+
+struct CustomTransitiom: Transition {
+    func body(content: Content, phase: TransitionPhase) -> some View {
+        content
+            .mask {
+                GeometryReader { geometry in
+                    let size = geometry.size
+                    
+                    Rectangle()
+                        .offset(y: phase == .identity ? 0 : -size.height)
+                }
+                .containerRelativeFrame(.horizontal)
+            }
     }
 }
 

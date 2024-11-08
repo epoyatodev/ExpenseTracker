@@ -38,5 +38,5 @@ struct CustomSegmentedControl: View {
 }
 
 #Preview {
-    TabBarView()
+    CustomSegmentedControl(selectedCategory: .constant(.expense))
 }

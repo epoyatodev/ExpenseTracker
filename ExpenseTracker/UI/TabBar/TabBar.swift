@@ -6,18 +6,22 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct TabBarView: View {
     /// Intro Visibility Status
     @AppStorage("showResume") var showResume: Bool = true
-    /// Active Tab
+    @State var viewModel: RecentsViewModel = .init()
+
     var body: some View {
         TabView {
             Tab.init(TabItem.recents.rawValue, systemImage: TabItem.recents.image) {
                 RecentsView()
+                    .environment(viewModel)
             }
             Tab.init(TabItem.search.rawValue, systemImage: TabItem.search.image) {
                 SearchView()
+                    .environment(viewModel)
             }
             Tab.init(TabItem.charts.rawValue, systemImage: TabItem.charts.image) {
                 GraphsView()
@@ -31,7 +35,8 @@ struct TabBarView: View {
             AppInfoView()
                 .interactiveDismissDisabled()
         }
-        
+        .onAppear {
+        }
     }
 }
 

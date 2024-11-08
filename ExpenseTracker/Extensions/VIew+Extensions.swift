@@ -42,4 +42,20 @@ extension View {
         
         return formatter.string(from: .init(value: value)) ?? ""
     }
+    
+    @ViewBuilder
+    func formatTextfieldNewTrtansaction() -> some View {
+        self
+            .padding(.horizontal, 15)
+            .padding(.vertical, 12)
+            .background(.background, in: .rect(cornerRadius: 10))
+    }
+    
+    @ViewBuilder
+    func formatTitleSectionNewTransaction() -> some View {
+        self
+            .font(.caption)
+            .foregroundStyle(.primary.secondary)
+            .hSpacing(.leading)
+    }
 }

@@ -10,9 +10,22 @@
 		CA97B9B22CD40822001AD28B /* ExpenseTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExpenseTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		CA4603E82CDBB6CD008F6B2F /* Exceptions for "ExpenseTracker" folder in "ExpenseTracker" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = CA97B9B12CD40822001AD28B /* ExpenseTracker */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		CA97B9B42CD40822001AD28B /* ExpenseTracker */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				CA4603E82CDBB6CD008F6B2F /* Exceptions for "ExpenseTracker" folder in "ExpenseTracker" target */,
+			);
 			path = ExpenseTracker;
 			sourceTree = "<group>";
 		};
@@ -250,8 +263,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ExpenseTracker/Preview Content\"";
+				DEVELOPMENT_TEAM = 6NRN964UZH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ExpenseTracker/Info.plist;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Necesitamos permisos de Face ID";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -287,8 +303,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ExpenseTracker/Preview Content\"";
+				DEVELOPMENT_TEAM = 6NRN964UZH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ExpenseTracker/Info.plist;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Necesitamos permisos de Face ID";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;

@@ -9,8 +9,32 @@
 import SwiftUI
 
 struct SettignsView: View {
+    @AppStorage("username") private var username: String = ""
+    @AppStorage("isAppLockEnabled") private var isAppLockEnabled: Bool = false
+    @AppStorage("isAppLockBackground") private var isAppLockBackground: Bool = false
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            List {
+                Section("Usuario") {
+                    TextField("Usuario", text: $username)
+                }
+                
+//                Section("Seguridad") {
+//                    Toggle("Habilitar bloqueo de la App", isOn: $isAppLockEnabled)
+//                    
+//                    if isAppLockEnabled {
+//                        Toggle("Bloquear la App cuando esté en segundo plano", isOn: $isAppLockBackground)
+//
+//                    }
+//                }
+            }
+            .navigationTitle("Ajustes")
+//            .onChange(of: isAppLockEnabled) { oldValue, newValue in
+//                if !newValue {
+//                    self.isAppLockBackground = false
+//                }
+//            }
+        }
     }
 }
 

@@ -9,12 +9,18 @@
 import SwiftUI
 
 struct HeaderView: View {
+    @Binding var showAddTransaction: Bool
+    @AppStorage("username") private var username: String = ""
+    var recentsViewModel: RecentsViewModel
     let size: CGSize
     var body: some View {
         HStack(spacing: 10) {
             VStack(alignment: .leading, spacing: 5) {
-                Text("Resumen")
-                    .font(.title.bold())
+                Text("Bienvenid@")
+                    .font(.title)
+                Text(username)
+                    .font(.caption)
+                    .foregroundStyle(.primary.secondary)
             }
             .visualEffect({ content, geometryProxy in
                 content
@@ -29,7 +35,7 @@ struct HeaderView: View {
             Spacer(minLength: 0)
             
             Button {
-                
+                self.showAddTransaction = true
             } label: {
                 Image(systemName: "plus")
                     .fontWeight(.semibold)
@@ -39,7 +45,7 @@ struct HeaderView: View {
                     .contentShape(.circle)
             }
         }
-        .padding(.bottom, 10)
+        .padding(.bottom, username.isEmpty ? 5 : 10)
         .background(
             VStack(spacing: 0) {
                 Rectangle()
@@ -59,5 +65,5 @@ struct HeaderView: View {
 }
 
 #Preview {
-    HeaderView(size: CGSize(width:200 , height: 200))
+    HeaderView(showAddTransaction: .constant(true), recentsViewModel: .init(transactionManager: TransactionManagerTest()), size: CGSize(width:200 , height: 200))
 }

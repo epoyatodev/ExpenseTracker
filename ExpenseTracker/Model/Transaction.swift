@@ -7,9 +7,11 @@
 //
 
 import SwiftUI
+import SwiftData
 
-struct Transaction: Identifiable {
-    let id: UUID = .init()
+@Model
+class Transaction: Identifiable {
+    @Attribute(.unique) var id: UUID
     var title: String
     var remarks: String
     var amount: Double
@@ -17,7 +19,8 @@ struct Transaction: Identifiable {
     var category: String
     var tintColor: String
     
-    init(title: String, remarks: String, amount: Double, dateAdded: Date, category: Category, tintColor: TintColor) {
+    init(id: UUID = .init(), title: String, remarks: String, amount: Double, dateAdded: Date, category: Category, tintColor: TintColor) {
+        self.id = id
         self.title = title
         self.remarks = remarks
         self.amount = amount
@@ -33,8 +36,8 @@ struct Transaction: Identifiable {
 }
 
 
-var previewTransaction: [Transaction] = [
-    .init(title: "Letra coche", remarks: "Automovil", amount: 165, dateAdded: .now, category: .expense, tintColor: tints.randomElement()!),
-    .init(title: "Café", remarks: "Café", amount: 2.30, dateAdded: .now, category: .expense, tintColor: tints.randomElement()!),
-    .init(title: "Salary", remarks: "Salary received!", amount: 3600, dateAdded: .now, category: .income, tintColor: tints.randomElement()!)
-]
+extension Transaction {
+    static var emptyTransaction: Transaction {
+        .init(id: .init(), title: "", remarks: "", amount: 0, dateAdded: .distantPast, category: .income, tintColor: TintColor(color: "Blue", value: .appTint))
+    }
+}

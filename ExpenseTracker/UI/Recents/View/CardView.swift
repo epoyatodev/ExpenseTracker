@@ -11,6 +11,7 @@ import SwiftUI
 struct CardView: View {
     var income: Double
     var expense: Double
+    var savings: Double
     
     var body: some View {
         ZStack {
@@ -19,7 +20,7 @@ struct CardView: View {
             
             VStack(spacing: 0) {
                 HStack(spacing: 12) {
-                    Text("\(currencyString(income - expense))")
+                    Text("\(currencyString(income - expense - savings))")
                         .font(.title.bold())
                     
                     Image(systemName: expense > income ? "chart.line.downtrend.xyaxis" : "chart.line.uptrend.xyaxis")
@@ -30,8 +31,8 @@ struct CardView: View {
                 
                 HStack(spacing: 0) {
                     ForEach(Category.allCases, id: \.rawValue) { category in
-                        let symbol = category == .income ? "arrow.down" : "arrow.up"
-                        let tint = category == .income ? Color.green : Color.red
+                        let symbol = category == .income ? "arrow.down" : category == .expense ? "arrow.up" : "envelope.fill"
+                        let tint = category == .income ? Color.green : category == .expense ? Color.red : Color.blue
                         HStack(spacing: 10) {
                             Image(systemName: symbol)
                                 .font(.callout)
@@ -44,25 +45,37 @@ struct CardView: View {
                                     .font(.caption2)
                                     .foregroundStyle(.gray)
                                 
-                                Text(currencyString(category == .income ? income : expense, allowedDigits: 0))
-                                    .font(.callout)
-                                    .fontWeight(.semibold)
-                                    .foregroundStyle(.primary)
+                                switch category {
+                                case .income:
+                                    Text(currencyString(income, allowedDigits: 0))
+                                        .font(.callout)
+                                        .fontWeight(.semibold)
+                                        .foregroundStyle(.primary)
+                                case .expense:
+                                    Text(currencyString(expense, allowedDigits: 0))
+                                        .font(.callout)
+                                        .fontWeight(.semibold)
+                                        .foregroundStyle(.primary)
+                                case .savings:
+                                    Text(currencyString(savings, allowedDigits: 0))
+                                        .font(.callout)
+                                        .fontWeight(.semibold)
+                                        .foregroundStyle(.primary)
+                                }
+                                
                             }
                             
-                            if category == .income {
-                                Spacer(minLength: 10)
-                            }
                         }
+                        .hSpacing()
                     }
                 }
             }
-            .padding([.horizontal, .bottom], 25)
+            .padding(.bottom, 25)
             .padding(.top, 15)
         }
     }
 }
 
 #Preview {
-    CardView(income: 4564, expense: 565)
+    CardView(income: 5, expense: 565, savings: 1500)
 }
