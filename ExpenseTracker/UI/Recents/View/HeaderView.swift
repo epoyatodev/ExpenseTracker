@@ -17,7 +17,7 @@ struct HeaderView: View {
         HStack(spacing: 10) {
             VStack(alignment: .leading, spacing: 5) {
                 Text("Bienvenid@")
-                    .font(.title)
+                    .font(.title.bold())
                 Text(username)
                     .font(.caption)
                     .foregroundStyle(.primary.secondary)
